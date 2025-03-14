@@ -6,7 +6,7 @@
 
 A modern, responsive website for Haruoto Japanese restaurant featuring smooth animations and seasonal aesthetics. Built with React and Tailwind CSS.
 
-![Haruoto Website Preview](./preview.jpg)
+![Haruoto Website Preview](https://i.ibb.co/Cs995PrB/haruoto.png)
 
 ## Features
 
@@ -23,6 +23,10 @@ A modern, responsive website for Haruoto Japanese restaurant featuring smooth an
 3. Team Page
 4. Menu Section (Placeholder)
 5. Instagram Feed Integration
+6. Interactive Events Calendar
+7. Hours & Location with map included
+8. Newsletter and sending e-mails
+9. Vouchers
 
 ## Technologies Used
 
