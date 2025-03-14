@@ -17,6 +17,25 @@ export const Home = () => {
     <div className="min-h-screen text-primary font-sans pb-24 flex flex-col gap-10">
       {/* Main Grid: About Us, Team, Menu */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 py-6 lg:px-24 lg:py-12">
+        {/* Menu */}
+        <Link
+          to="/menu"
+          className="group relative overflow-hidden rounded-lg shadow-lg aspect-square"
+        >
+          <img
+            src={menu}
+            alt="Menu"
+            className="w-full h-full object-cover transform transition-all duration-700 group-hover:scale-110"
+          />
+          {/* Text and Line Container */}
+          <div className="border-t-4 absolute inset-x-0 bottom-0 px-4 pb-5 pt-3 transition-all duration-500 bg-black/30 backdrop-blur-sm">
+            {/* Text */}
+            <span className="text-white hachi-maru-pop-regular text-3xl md:text-4xl lg:text-5xl font-serif transition-all duration-500 group-hover:ps-10">
+              menus
+            </span>
+          </div>
+        </Link>
+
         {/* About Us */}
         <Link
           to="/about"
@@ -54,27 +73,7 @@ export const Home = () => {
             </span>
           </div>
         </Link>
-
-        {/* Menu */}
-        <Link
-          to="/menu"
-          className="group relative overflow-hidden rounded-lg shadow-lg aspect-square"
-        >
-          <img
-            src={menu}
-            alt="Menu"
-            className="w-full h-full object-cover transform transition-all duration-700 group-hover:scale-110"
-          />
-          {/* Text and Line Container */}
-          <div className="border-t-4 absolute inset-x-0 bottom-0 px-4 pb-5 pt-3 transition-all duration-500 bg-black/30 backdrop-blur-sm">
-            {/* Text */}
-            <span className="text-white hachi-maru-pop-regular text-3xl md:text-4xl lg:text-5xl font-serif transition-all duration-500 group-hover:ps-10">
-              menus
-            </span>
-          </div>
-        </Link>
       </div>
-
       {/* Instagram-like Post Grid */}
       <div className="bg-primary pb-24">
         <h2 className="py-12 lg:py-24 text-accent text-center hachi-maru-pop-regular text-5xl md:text-6xl lg:text-7xl">
