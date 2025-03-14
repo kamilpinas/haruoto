@@ -8,6 +8,7 @@ export const Footer = () => {
       <div className="lg:flex hidden space-x-4">
         <a
           href="https://instagram.com"
+          aria-label="Instagram page reference, out social media page with newest events and images of our team and menu."
           target="_blank"
           rel="noopener noreferrer"
           className=" text-primary hover:text-accent transition-colors duration-500"
@@ -24,6 +25,7 @@ export const Footer = () => {
         <a
           href="https://facebook.com"
           target="_blank"
+          aria-label="Facebook page reference, out social media page with newest events and informations"
           rel="noopener noreferrer"
           className="text-primary hover:text-accent transition-colors duration-500"
         >

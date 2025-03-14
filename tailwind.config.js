@@ -13,7 +13,7 @@ module.exports = {
         serif: ["Montserrat", "serif"], // Or your preferred serif font
       },
       colors: {
-        primary: "#CE999B", //Text & buttons
+        primary: "#D9B0B1", //Text & buttons
         secondary: "#546581", // Background
         accent: "#311E1E", // Accent
       },
