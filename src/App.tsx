@@ -12,17 +12,17 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <ScrollRestoration />
-      <div className="min-h-screen bg-secondary font-sans">
-        <header>
-          <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-        </header>
-        <main className="mt-10">
-          <Outlet />
-        </main>
-      </div>
-      <footer className="mb-20">
+      <header className="flex-none">
+        <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+      </header>
+
+      <main className="flex-1 bg-secondary mt-8">
+        <Outlet />
+      </main>
+
+      <footer className="flex-none bg-secondary mt-auto py-12">
         <Footer isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       </footer>
     </div>
