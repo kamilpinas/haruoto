@@ -438,7 +438,7 @@ export const Menu = () => {
         </div>
       </div>
       <div className="bg-secondary text-primary font-sans px-6 lg:px-24 flex flex-col justify-center lg:flex-row">
-        <div className="w-full bg-black/15 rounded-lg p-12">
+        <div className="w-full bg-black/15 rounded-lg p-8">
           {activeTab === "dinner" && (
             <div className="animate-slide-in-left duration-700">
               {/* Ramen, Noodles, and Rice Bowls in 3 Columns */}
@@ -640,7 +640,7 @@ export const Menu = () => {
                 {/* Cocktails Column */}
                 <div className="flex-1">
                   <h2 className="text-4xl hachi-maru-pop-regular pb-2 mb-12 border-primary border-b-4 flex justify-between">
-                    <span>cocktails</span>
+                    <span>drinks</span>
                     <span>飲み物</span>
                   </h2>
                   <div className="space-y-4">
