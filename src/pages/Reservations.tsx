@@ -47,9 +47,10 @@ export const Reservations = () => {
 
   return (
     <>
-      <h1 className="text-center text-primary text-3xl md:text-5xl lg:text-7xl hachi-maru-pop-regular mb-12 animate-slide-in-left duration-700">
-        ·•— Reservations —•·
+      <h1 className="text-center text-primary text-4xl md:text-5xl lg:text-7xl hachi-maru-pop-regular animate-slide-in-left duration-700 border-primary border-b-4 pb-2">
+        Reservations
       </h1>
+      <span className="h-0.5 bg-primary w-full transition-all duration-700"></span>
       <div className="animate-slide-in-right bg-secondary text-primary font-sans py-12 px-6 lg:px-24">
         <div className="max-w-4xl mx-auto">
           {/* Reservation Form */}

@@ -55,8 +55,8 @@ const teamMembers = [
 export const Team = () => {
   return (
     <>
-      <h1 className="text-center text-primary text-5xl lg:text-7xl hachi-maru-pop-regular mb-12 animate-slide-in-left duration-700">
-        ·•— Team —•·
+      <h1 className="text-center text-primary text-4xl lg:text-7xl hachi-maru-pop-regular  animate-slide-in-left duration-700 border-primary border-b-4 pb-2">
+        Team
       </h1>
       <div className=" text-primary font-sans pb-24">
         {/* Hero Section */}

@@ -7,8 +7,8 @@ import ingredients from "../assets/ingridients.webp"
 export const About = () => {
   return (
     <>
-      <h1 className="text-center text-primary text-5xl lg:text-7xl hachi-maru-pop-regular mb-12 animate-slide-in-left duration-700">
-        ·•— About —•·
+      <h1 className="text-center text-primary text-4xl lg:text-7xl hachi-maru-pop-regular  animate-slide-in-left duration-700 border-primary border-b-4 pb-2">
+        About
       </h1>
       <div className=" text-primary font-sans pb-24">
         {/* Hero Section */}
@@ -21,7 +21,7 @@ export const About = () => {
         </div>
 
         {/* Story Sections */}
-        <h1 className="text-primary hachi-maru-pop-regular text-5xl md:text-6xl lg:text-7xl text-center p-8 backdrop-blur-sm rounded-2xl">
+        <h1 className="text-primary hachi-maru-pop-regular text-3xl md:text-5xl lg:text-7xl text-center lg:p-8 p-4 backdrop-blur-sm rounded-2xl">
           Our Story of Season's Whisper
         </h1>
         <div className="px-6 py-12 lg:px-24 lg:py-24 space-y-24">
@@ -75,25 +75,23 @@ export const About = () => {
                 peak-season cooking. Our menu evolves like a kaiseki calendar:
               </p>
               <ul className="space-y-4 text-lg">
-                <li className="flex items-center gap-3">
-                  <span className="text-secondary text-2xl">✻</span>
+                <li className="flex lg:flex-row flex-col items-center gap-3">
                   <span className="font-semibold">January-March:</span>
-                  Earth's awakening - mountain vegetables & citrus
+                  <span>Earth's awakening - mountain vegetables & citrus</span>
                 </li>
-                <li className="flex items-center gap-3">
-                  <span className="text-secondary text-2xl">✻</span>
+                <li className="flex lg:flex-row flex-col items-center gap-3">
                   <span className="font-semibold">April-June:</span>
-                  Ocean's bloom - sakura shrimp & bamboo shoots
+                  <span>Ocean's bloom - sakura shrimp & bamboo shoots</span>
                 </li>
-                <li className="flex items-center gap-3">
-                  <span className="text-secondary text-2xl">✻</span>
+                <li className="flex lg:flex-row flex-col items-center gap-3">
                   <span className="font-semibold">July-September:</span>
-                  Fire & water - chilled somen & charcoal-grilled ayu
+                  <span>
+                    Fire & water - chilled somen & charcoal-grilled ayu
+                  </span>
                 </li>
-                <li className="flex items-center gap-3">
-                  <span className="text-secondary text-2xl">✻</span>
+                <li className="flex lg:flex-row flex-col items-center gap-3">
                   <span className="font-semibold">October-December:</span>
-                  Harvest moon - matsutake mushrooms & persimmon
+                  <span>Harvest moon - matsutake mushrooms & persimmon</span>
                 </li>
               </ul>
             </div>

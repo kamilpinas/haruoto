@@ -7,27 +7,31 @@ export const Menu = () => {
 
   const renderVeganIcon = () => {
     return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        className="w-6 h-6 stroke-accent fill-secondary"
-      >
-        <g strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5">
-          <path d="M15 11.063C12.53 13.65 10.059 20 10.059 20S6.529 11.063 3 9"></path>
-          <path d="m20.496 5.577l.426 4.424c.276 2.87-1.875 5.425-4.745 5.702c-2.816.27-5.367-1.788-5.638-4.604a5.12 5.12 0 0 1 4.608-5.59l4.716-.454a.58.58 0 0 1 .633.522"></path>
-        </g>
-      </svg>
+      <span className="pt-1 pr-1">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          className="w-6 h-6 stroke-accent fill-transparent"
+        >
+          <g strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5">
+            <path d="M15 11.063C12.53 13.65 10.059 20 10.059 20S6.529 11.063 3 9"></path>
+            <path d="m20.496 5.577l.426 4.424c.276 2.87-1.875 5.425-4.745 5.702c-2.816.27-5.367-1.788-5.638-4.604a5.12 5.12 0 0 1 4.608-5.59l4.716-.454a.58.58 0 0 1 .633.522"></path>
+          </g>
+        </svg>
+      </span>
     )
   }
   const renderPepperIcon = () => {
     return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-6 h-6 fill-accent"
-        viewBox="0 0 256 256"
-      >
-        <path d="M167.27 40.42A40.06 40.06 0 0 0 128 8a8 8 0 0 0 0 16a24 24 0 0 1 22.85 16.66A64.08 64.08 0 0 0 96 104c0 46.75-25.75 78-76.53 93a16 16 0 0 0 1.77 31.13A265 265 0 0 0 66.75 232c40.78 0 86.16-9.15 117.53-35.46C210.64 174.44 224 143.3 224 104a64.07 64.07 0 0 0-56.73-63.58M160 56a48.07 48.07 0 0 1 45.37 32.37L192 95l-28.42-14.17a8 8 0 0 0-7.16 0L128 95l-13.37-6.68A48.08 48.08 0 0 1 160 56m14 128.3c-18 15.07-43.6 25.26-74.12 29.47a254 254 0 0 1-75.88-1.4c57.23-16.87 87.63-54 88-107.42l12.44 6.22a8 8 0 0 0 7.16 0L160 96.93l28.42 14.21a8 8 0 0 0 7.16 0l12.41-6.2c-.21 33.9-11.64 60.6-33.99 79.35Z"></path>
-      </svg>
+      <span className="pt-1 pr-1">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-6 h-6 fill-accent"
+          viewBox="0 0 256 256"
+        >
+          <path d="M167.27 40.42A40.06 40.06 0 0 0 128 8a8 8 0 0 0 0 16a24 24 0 0 1 22.85 16.66A64.08 64.08 0 0 0 96 104c0 46.75-25.75 78-76.53 93a16 16 0 0 0 1.77 31.13A265 265 0 0 0 66.75 232c40.78 0 86.16-9.15 117.53-35.46C210.64 174.44 224 143.3 224 104a64.07 64.07 0 0 0-56.73-63.58M160 56a48.07 48.07 0 0 1 45.37 32.37L192 95l-28.42-14.17a8 8 0 0 0-7.16 0L128 95l-13.37-6.68A48.08 48.08 0 0 1 160 56m14 128.3c-18 15.07-43.6 25.26-74.12 29.47a254 254 0 0 1-75.88-1.4c57.23-16.87 87.63-54 88-107.42l12.44 6.22a8 8 0 0 0 7.16 0L160 96.93l28.42 14.21a8 8 0 0 0 7.16 0l12.41-6.2c-.21 33.9-11.64 60.6-33.99 79.35Z"></path>
+        </svg>
+      </span>
     )
   }
 
@@ -394,8 +398,8 @@ export const Menu = () => {
 
   return (
     <>
-      <h1 className="text-center text-primary text-5xl lg:text-7xl hachi-maru-pop-regular mb-12 animate-slide-in-left duration-700">
-        ·•— Menu —•·
+      <h1 className="text-center text-primary text-4xl lg:text-7xl hachi-maru-pop-regular  animate-slide-in-left duration-700 border-primary border-b-4 pb-2">
+        Menu
       </h1>
       <div className="font-sans px-6 py-6 lg:px-24">
         {/* Content Based on Active Tab */}
@@ -449,10 +453,10 @@ export const Menu = () => {
                       <div key={item.id} className="flex justify-between">
                         <div>
                           <h3 className="text-xl font-serif">
-                            <div className="flex gap-2">
+                            <div className="flex gap-4">
                               <span>{item.name}</span>
-                              <span>{item.vegan && renderVeganIcon()}</span>
-                              <span>{item.spicy && renderPepperIcon()}</span>
+                              {item.vegan && renderVeganIcon()}
+                              {item.spicy && renderPepperIcon()}
                             </div>
                           </h3>
                           <p className="text-sm text-gray-300">
@@ -478,8 +482,8 @@ export const Menu = () => {
                           <h3 className="text-xl font-serif">
                             <div className="flex gap-2">
                               <span>{item.name}</span>
-                              <span>{item.vegan && renderVeganIcon()}</span>
-                              <span>{item.spicy && renderPepperIcon()}</span>
+                              {item.vegan && renderVeganIcon()}
+                              {item.spicy && renderPepperIcon()}
                             </div>
                           </h3>
                           <p className="text-sm text-gray-300">
@@ -505,7 +509,7 @@ export const Menu = () => {
                           <h3 className="text-xl font-serif">
                             <div className="flex gap-2">
                               <span>{item.name}</span>
-                              <span>{item.vegan && renderVeganIcon()}</span>
+                              {item.vegan && renderVeganIcon()}
                             </div>
                           </h3>
                           <p className="text-sm text-gray-300">
@@ -563,7 +567,7 @@ export const Menu = () => {
                           <h3 className="text-xl font-serif">
                             <div className="flex gap-2">
                               <span>{item.name}</span>
-                              <span>{item.spicy && renderPepperIcon()}</span>
+                              {item.spicy && renderPepperIcon()}
                             </div>
                           </h3>
                           <p className="text-sm text-gray-300">

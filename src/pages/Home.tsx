@@ -14,7 +14,7 @@ const postArray = [post0, post1, post2, post3, post4, post5]
 
 export const Home = () => {
   return (
-    <div className="min-h-screen text-primary font-sans pb-24 flex flex-col gap-10">
+    <div className=" text-primary font-sans pb-24 flex flex-col gap-10">
       {/* Main Grid: About Us, Team, Menu */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 py-6 lg:px-24 lg:py-12">
         {/* Menu */}

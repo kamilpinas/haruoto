@@ -1,13 +1,23 @@
-import { useState, useRef } from "react"
+import { useEffect, useRef } from "react"
 import { Link } from "react-router-dom"
+import { MenuProps } from "../App"
 
-export const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+export const Navbar = (props: MenuProps) => {
   const menuRef = useRef<HTMLDivElement>(null)
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
+  // Add/remove overflow-hidden to body when menu is open
+  useEffect(() => {
+    if (props.isMenuOpen) {
+      document.body.classList.add("overflow-hidden")
+    } else {
+      document.body.classList.remove("overflow-hidden")
+    }
+
+    // Cleanup on component unmount
+    return () => {
+      document.body.classList.remove("overflow-hidden")
+    }
+  }, [props.isMenuOpen])
 
   return (
     <div className="px-6 lg:px-24 w-full flex lg:flex-col flex-row items-center justify-between transition-colors duration-1000 ease-in-out">
@@ -29,13 +39,13 @@ export const Navbar = () => {
 
       {/* Hamburger Menu (Mobile) */}
       <div
-        onClick={toggleMenu}
+        onClick={() => props.setIsMenuOpen(!props.isMenuOpen)}
         className={`lg:hidden bg-secondary text-primary focus:outline-none cursor-pointer z-20 right-0 ${
-          isMenuOpen ? "fixed pr-4 mt-5" : "relative mt-3"
+          props.isMenuOpen ? "fixed pr-4 mt-5" : "relative mt-3"
         }`}
       >
         {/* Hamburger Icon (☰) or Close Icon (X) */}
-        {isMenuOpen ? (
+        {props.isMenuOpen ? (
           <svg
             className="w-12 h-12"
             viewBox="0 0 24 24"
@@ -91,7 +101,9 @@ export const Navbar = () => {
       <nav
         ref={menuRef}
         className={`z-10 w-full fixed lg:static inset-0 bg-secondary lg:bg-transparent text-3xl font-serif text-primary transition-transform duration-500 ease-in-out transform ${
-          isMenuOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
+          props.isMenuOpen
+            ? "translate-x-0"
+            : "-translate-x-full lg:translate-x-0"
         }`}
       >
         {/* Header for Mobile Menu */}
@@ -101,12 +113,12 @@ export const Navbar = () => {
         </div>
 
         {/* Scrollable Links Container */}
-        <div className="pt-12 lg:h-auto overflow-y-auto lg:overflow-visible flex flex-col lg:flex-row justify-center lg:justify-between items-center space-y-8 lg:space-y-8 lg:space-x-8">
+        <div className="pb-8 lg:h-auto h-[calc(100vh-180px)] overflow-y-auto overscroll-contain flex flex-col lg:flex-row justify-start lg:justify-between items-center space-y-8 lg:space-y-8 lg:space-x-8">
           <span className="lg:hidden text-5xl leading-[0]">•</span>
           <Link
             to="/menu"
             className="relative group hover:brightness-125 transition-colors duration-500"
-            onClick={() => setIsMenuOpen(false)}
+            onClick={() => props.setIsMenuOpen(false)}
           >
             MENU
             <span className="absolute left-0 -bottom-2 h-0.5 bg-primary w-0 group-hover:w-full transition-all duration-700"></span>
@@ -114,7 +126,7 @@ export const Navbar = () => {
           <Link
             to="/hours-location"
             className="relative group hover:brightness-125 transition-colors duration-500"
-            onClick={() => setIsMenuOpen(false)}
+            onClick={() => props.setIsMenuOpen(false)}
           >
             HOURS & LOCATION
             <span className="absolute left-0 -bottom-2 h-0.5 bg-primary w-0 group-hover:w-full transition-all duration-700"></span>
@@ -122,7 +134,7 @@ export const Navbar = () => {
           <Link
             to="/reservations"
             className="relative group hover:brightness-125 transition-colors duration-500"
-            onClick={() => setIsMenuOpen(false)}
+            onClick={() => props.setIsMenuOpen(false)}
           >
             RESERVATIONS
             <span className="absolute left-0 -bottom-2 h-0.5 bg-primary w-0 group-hover:w-full transition-all duration-700"></span>
@@ -130,7 +142,7 @@ export const Navbar = () => {
           <Link
             to="/events"
             className="relative group hover:brightness-125 transition-colors duration-500"
-            onClick={() => setIsMenuOpen(false)}
+            onClick={() => props.setIsMenuOpen(false)}
           >
             EVENTS
             <span className="absolute left-0 -bottom-2 h-0.5 bg-primary w-0 group-hover:w-full transition-all duration-700"></span>
@@ -139,7 +151,7 @@ export const Navbar = () => {
           <Link
             to="/team"
             className="lg:hidden relative group hover:brightness-125 transition-colors duration-500"
-            onClick={() => setIsMenuOpen(false)}
+            onClick={() => props.setIsMenuOpen(false)}
           >
             TEAM
             <span className="absolute left-0 -bottom-2 h-0.5 bg-primary w-0 group-hover:w-full transition-all duration-700"></span>
@@ -148,7 +160,7 @@ export const Navbar = () => {
           <Link
             to="/about"
             className="lg:hidden relative group hover:brightness-125 transition-colors duration-500"
-            onClick={() => setIsMenuOpen(false)}
+            onClick={() => props.setIsMenuOpen(false)}
           >
             ABOUT
             <span className="absolute left-0 -bottom-2 h-0.5 bg-primary w-0 group-hover:w-full transition-all duration-700"></span>
@@ -157,7 +169,7 @@ export const Navbar = () => {
           <Link
             to="/vouchers"
             className="lg:hidden relative group hover:brightness-125 transition-colors duration-500"
-            onClick={() => setIsMenuOpen(false)}
+            onClick={() => props.setIsMenuOpen(false)}
           >
             VOUCHERS
             <span className="absolute left-0 -bottom-2 h-0.5 bg-primary w-0 group-hover:w-full transition-all duration-700"></span>
@@ -165,7 +177,7 @@ export const Navbar = () => {
           <Link
             to="/newsletter"
             className="lg:hidden relative group hover:brightness-125 transition-colors duration-500"
-            onClick={() => setIsMenuOpen(false)}
+            onClick={() => props.setIsMenuOpen(false)}
           >
             NEWSLETTER
             <span className="absolute left-0 -bottom-2 h-0.5 bg-primary w-0 group-hover:w-full transition-all duration-700"></span>

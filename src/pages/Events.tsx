@@ -81,25 +81,25 @@ export const Events = () => {
 
   return (
     <>
-      <h1 className="text-center text-primary text-5xl lg:text-7xl hachi-maru-pop-regular mb-12 animate-slide-in-left duration-700">
-        ·•— Events —•·
+      <h1 className="text-center text-primary text-4xl lg:text-7xl hachi-maru-pop-regular  animate-slide-in-left duration-700 border-primary border-b-4 pb-2">
+        Events
       </h1>
       <div className="bg-secondary text-primary font-sans py-12 px-6 lg:px-24">
         <div className="mx-auto flex flex-col lg:flex-row gap-8">
           {/* Calendar */}
-          <div className="bg-black/15 p-8 rounded-lg lg:w-1/2 w-full animate-slide-in-left">
-            <h2 className="text-4xl hachi-maru-pop-regular mb-8 text-center">
+          <div className="bg-black/15 p-4 rounded-lg lg:w-1/2 w-full animate-slide-in-left">
+            <h2 className="text-3xl hachi-maru-pop-regular mb-8 text-center">
               {new Intl.DateTimeFormat("en-US", {
                 month: "long",
                 year: "numeric",
               }).format(currentDate)}
             </h2>
-            <div className="grid grid-cols-7 gap-4">
+            <div className="grid grid-cols-7 gap-2">
               {/* Weekday Headers */}
               {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
                 <div
                   key={day}
-                  className="text-center text-2xl font-serif text-primary/70"
+                  className="text-center text-md lg:text-2xl font-serif text-primary/70"
                 >
                   {day}
                 </div>
@@ -122,7 +122,7 @@ export const Events = () => {
                   <button
                     key={index}
                     onClick={() => handleDateClick(date)}
-                    className={`p-4 text-xl rounded-lg text-center transition-all duration-700 ${
+                    className={`p-2 text-xl rounded-lg text-center transition-all duration-700 ${
                       selectedDate?.toISOString() === date?.toISOString() &&
                       "bg-black/15"
                     } ${
@@ -143,7 +143,7 @@ export const Events = () => {
           {/* Event Details */}
           {selectedDate && (
             <div className="bg-black/15 p-8 rounded-lg lg:w-1/2 w-full animate-slide-in-right">
-              <h2 className="text-4xl hachi-maru-pop-regular mb-6">
+              <h2 className="text-2xl lg:text-4xl hachi-maru-pop-regular mb-6">
                 {new Intl.DateTimeFormat("en-US", {
                   dateStyle: "long",
                 }).format(selectedDate)}
@@ -157,8 +157,10 @@ export const Events = () => {
                 )
                 .map((event, index) => (
                   <div key={index} className="space-y-4">
-                    <h3 className="text-3xl font-serif">{event.title}</h3>
-                    <p className="text-xl">{event.description}</p>
+                    <h3 className="lg:text-3xl text-lg font-bold font-serif">
+                      {event.title}
+                    </h3>
+                    <p className="text-md lg:text-xl">{event.description}</p>
                   </div>
                 ))}
             </div>

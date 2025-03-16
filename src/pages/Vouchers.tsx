@@ -1,6 +1,37 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 export const Vouchers = () => {
+  const [selectedVoucher, setSelectedVoucher] = useState<number | null>(null)
+  const [savedScrollPosition, setSavedScrollPosition] = useState(0)
+  const detailsRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  const handleVoucherClick = (id: number) => {
+    if (!selectedVoucher) {
+      // Save current scroll position only when opening
+      setSavedScrollPosition(
+        window.scrollY || document.documentElement.scrollTop
+      )
+    }
+    setSelectedVoucher((prev) => (prev === id ? null : id))
+  }
+
+  useEffect(() => {
+    if (selectedVoucher && detailsRef.current) {
+      // Scroll to details with smooth animation
+      detailsRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      })
+    } else if (!selectedVoucher && savedScrollPosition) {
+      // Restore previous scroll position
+      window.scrollTo({
+        top: savedScrollPosition,
+        behavior: "smooth",
+      })
+    }
+  }, [selectedVoucher, savedScrollPosition])
+
   // Mocked voucher data
   const vouchers = [
     {
@@ -63,16 +94,10 @@ export const Vouchers = () => {
     },
   ]
 
-  const [selectedVoucher, setSelectedVoucher] = useState<number | null>(null)
-
-  const handleVoucherClick = (id: number) => {
-    setSelectedVoucher(id)
-  }
-
   return (
-    <>
-      <h1 className="text-center text-primary text-3xl md:text-5xl lg:text-7xl hachi-maru-pop-regular mb-12 animate-slide-in-left duration-700">
-        ·•— Vouchers —•·
+    <div ref={containerRef}>
+      <h1 className="text-center text-primary text-4xl md:text-5xl lg:text-7xl hachi-maru-pop-regular animate-slide-in-left duration-700 border-primary border-b-4 pb-2">
+        Vouchers
       </h1>
       <div className="animate-slide-in-left bg-secondary text-primary font-sans py-12 px-6 lg:px-24">
         <div className="max-w-7xlxl mx-auto">
@@ -86,7 +111,7 @@ export const Vouchers = () => {
                   selectedVoucher === voucher.id ? "ring-2 ring-primary" : ""
                 }`}
               >
-                <h2 className="text-4xl hachi-maru-pop-regular mb-4 border-primary border-b-4 pb-2 flex justify-between">
+                <h2 className="text-2xl hachi-maru-pop-regular mb-4 border-primary border-b-4 pb-2 flex justify-between">
                   {voucher.title}
                   <span className="font-bold">{voucher.price}</span>
                 </h2>
@@ -103,15 +128,18 @@ export const Vouchers = () => {
 
           {/* Selected Voucher Details */}
           {selectedVoucher && (
-            <div className="mt-8 bg-black/15 p-8 rounded-lg animate-fade-in">
-              <h2 className="text-4xl hachi-maru-pop-regular mb-6 flex justify-between">
+            <div
+              ref={detailsRef}
+              className="mt-8 bg-black/15 p-8 rounded-lg animate-fade-in"
+            >
+              <h2 className="text-3xl hachi-maru-pop-regular mb-6 flex justify-between">
                 {vouchers.find((v) => v.id === selectedVoucher)?.title}
 
                 <span className="font-bold">
                   {vouchers.find((v) => v.id === selectedVoucher)?.price}
                 </span>
               </h2>
-              <p className="text-lg mb-6">
+              <p className="text-md mb-6">
                 {vouchers.find((v) => v.id === selectedVoucher)?.description}
               </p>
               <div className="flex justify-between items-center">
@@ -125,12 +153,12 @@ export const Vouchers = () => {
                   "tracking-widest w-full text-center cursor-pointer text-2xl font-serif px-6 py-3  transition-all duration-700 rounded-lg hover:bg-primary hover:text-accent bg-accent text-primary"
                 }
               >
-                CLOSE DETAILS
+                CLOSE
               </button>
             </div>
           )}
         </div>
       </div>
-    </>
+    </div>
   )
 }

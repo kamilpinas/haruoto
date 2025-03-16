@@ -34,15 +34,15 @@ export const Newsletter = () => {
 
   return (
     <>
-      <h1 className="text-center text-primary text-3xl md:text-5xl lg:text-7xl hachi-maru-pop-regular mb-12 animate-slide-in-left duration-700">
-        ·•— Newsletter —•·
+      <h1 className="text-center text-primary text-4xl md:text-5xl lg:text-7xl hachi-maru-pop-regular animate-slide-in-left duration-700 border-primary border-b-4 pb-2">
+        Newsletter
       </h1>
       <div className="animate-slide-in-left bg-secondary text-primary font-sans py-12 px-6 lg:px-24">
         <div className="max-w-7xl mx-auto">
           {/* Subscription Form */}
           <div className="bg-black/15 p-8 rounded-lg mb-12">
             <h2 className="text-4xl hachi-maru-pop-regular mb-6">
-              Subscribe to Our Newsletter
+              Subscribe to our newsletter
             </h2>
             {isSubscribed ? (
               <p className="text-lg">
@@ -78,7 +78,7 @@ export const Newsletter = () => {
 
           {/* Latest Updates */}
           <div>
-            <h2 className="text-4xl hachi-maru-pop-regular mb-8">
+            <h2 className="text-3xl hachi-maru-pop-regular mb-4 border-primary border-b-2 pb-2">
               Latest Updates
             </h2>
             <div className="space-y-6">

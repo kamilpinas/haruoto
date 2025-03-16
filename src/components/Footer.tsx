@@ -1,7 +1,8 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import { MenuProps } from "../App"
 
-export const Footer = () => {
+export const Footer = (props: MenuProps) => {
   return (
     <div className="bg-secondary fixed bottom-0 z-10 left-0 w-full px-8 py-4 flex justify-between items-center text-2xl">
       {/* Left Side: Social Media Links */}
@@ -65,12 +66,14 @@ export const Footer = () => {
           </Link>
         </div>
         {/* Reservations Button */}
-        <Link
-          to="/reservations"
-          className="px-6 py-2 bg-accent text-primary rounded-lg hover:bg-primary hover:text-accent transition-colors duration-700 font-serif shadow-md w-full text-center lg:w-52"
-        >
-          BOOK NOW
-        </Link>
+        {!props.isMenuOpen && (
+          <Link
+            to="/reservations"
+            className="px-6 py-2 text-xl bg-accent text-primary rounded-lg hover:bg-primary hover:text-accent transition-colors duration-700 font-serif shadow-md w-full text-center lg:w-52"
+          >
+            BOOK NOW
+          </Link>
+        )}
       </div>
     </div>
   )

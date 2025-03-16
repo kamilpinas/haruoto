@@ -22,16 +22,16 @@ export const HoursLocation = () => {
 
   return (
     <>
-      <h1 className="text-center text-primary text-3xl md:text-5xl lg:text-7xl hachi-maru-pop-regular mb-12 animate-slide-in-left duration-700">
-        ·•— Hours & Location —•·
+      <h1 className="text-center text-primary text-4xl md:text-5xl lg:text-7xl hachi-maru-pop-regular animate-slide-in-left duration-700 border-primary border-b-4 pb-2 mb-4">
+        Hours & Location
       </h1>
       <div className="bg-secondary text-primary font-sans px-6 lg:px-24">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
           {/* Left Side - Opening Hours */}
           <div className="lg:w-1/2 flex flex-col gap-8 animate-slide-in-left duration-700">
             <div className="bg-black/15 p-8 rounded-lg transition-all duration-700">
-              <h2 className="text-4xl hachi-maru-pop-regular mb-6 relative group">
-                opening Hours
+              <h2 className="text-3xl hachi-maru-pop-regular mb-6 relative group">
+                opening hours
                 <span className="absolute left-0 -bottom-2 h-0.5 bg-primary w-full transition-all duration-700"></span>
               </h2>
               <ul className="text-xl">
@@ -46,7 +46,7 @@ export const HoursLocation = () => {
                 ].map(({ day, hours }) => (
                   <li
                     key={day}
-                    className={`flex justify-between items-center p-4 rounded-lg transition-all duration-700 ${
+                    className={`flex justify-between lg:flex-row flex-col items-center p-4 rounded-lg transition-all duration-700 ${
                       currentDay && day.includes(currentDay)
                         ? "bg-primary text-secondary scale-105 font-semibold"
                         : "hover:bg-accent/40"
@@ -63,7 +63,7 @@ export const HoursLocation = () => {
           {/* Right Side - Map & Find Us */}
           <div className="lg:w-1/2 flex flex-col gap-8 animate-slide-in-right duration-700">
             <div className="bg-black/15 p-8 rounded-lg transition-all duration-700 ">
-              <h2 className="text-4xl hachi-maru-pop-regular mb-6 relative group">
+              <h2 className="text-3xl hachi-maru-pop-regular mb-6 relative group">
                 find us
                 <span className="absolute left-0 -bottom-2 h-0.5 bg-primary w-full transition-all duration-700"></span>
               </h2>
