@@ -114,7 +114,6 @@ export const Navbar = (props: MenuProps) => {
 
         {/* Scrollable Links Container */}
         <div className="pb-8 lg:h-auto h-[calc(100vh-180px)] overflow-y-auto overscroll-contain flex flex-col lg:flex-row justify-start lg:justify-between items-center space-y-8 lg:space-y-8 lg:space-x-8">
-          <span className="lg:hidden text-5xl leading-[0]">•</span>
           <Link
             to="/menu"
             className="relative group hover:brightness-125 transition-colors duration-500"
@@ -182,7 +181,6 @@ export const Navbar = (props: MenuProps) => {
             NEWSLETTER
             <span className="absolute left-0 -bottom-2 h-0.5 bg-primary w-0 group-hover:w-full transition-all duration-700"></span>
           </Link>
-          <span className="lg:hidden text-5xl leading-[0]">•</span>
         </div>
       </nav>
     </div>
